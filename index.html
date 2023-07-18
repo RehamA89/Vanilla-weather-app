@@ -3,54 +3,69 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="src/app.css" />
+
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
       rel="stylesheet"
       integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM"
       crossorigin="anonymous"
     />
+    <link rel="stylesheet" href="src/app.css" />
 
     <title>Vanilla weather-app</title>
   </head>
   <body>
-    <div class="container-lg my-5" id="container">
-      <div class="row">
-        <div class="col-12 mt-3">
-          <form>
-            <input
-              type="text"
-              placeholder="Enter City and Country Name"
-              id="search-field"
-            />
-            <input type="submit" value="search" class="btn btn-primary" />
-          </form>
+    <div class="container-lg my-5" id="weather-app">
+      <div id="weather-app-wrapper">
+        <div class="row">
+          <div class="col-12 mt-3">
+            <form>
+              <input
+                type="text"
+                placeholder="Enter City and Country Name"
+                id="search-field"
+              />
+              <input type="submit" value="search" class="btn btn-primary" />
+            </form>
+          </div>
         </div>
-      </div>
-      <div class="row">
-        <div class="col-12">
-          <div class="pt-5 fs-5 fw-bold">City Name</div>
-          <div class="d-flex py-2 px-5 fs-5 fw-bold">
-            Temperature
-            <div class="px-5 mx-5" id="current-weather-image">Image</div>
-            <ul>
-              <li><div class="py-3 px-5 fs-6 fw-light muted">Wind</div></li>
-              <li><div class="py-3 px-5 fs-6 fw-light muted">Humidity</div></li>
-              <li>
-                <div class="py-3 px-5 fs-6 fw-light muted">Precipitation</div>
-              </li>
-            </ul>
+        <div class="row">
+          <div class="col-12">
+            <div class="pt-4 fw-light" id="city-name">Guelph</div>
+            <div class="fw-light" id="date-element">Date</div>
+            <div class="d-flex fs-5 fw-bold">
+              Image
+              <div class="mx-3">Temperature</div>
+              <ul>
+                <li>
+                  <span class="py-3 px-5 fs-6 fw-light muted" id="wind"
+                    >Wind</span
+                  >
+                </li>
+                <li>
+                  <span class="py-3 px-5 fs-6 fw-light muted" id="humidity"
+                    >Humidity</span
+                  >
+                </li>
+                <li>
+                  <span class="py-3 px-5 fs-6 fw-light muted" id="precipitation"
+                    >Precipitation</span
+                  >
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="d-flex col my-5" id="forecast-group">
+            <div class="mx-5" id="forecast-one">ONE</div>
+            <div class="mx-5" id="forecast-two">TWO</div>
+            <div class="mx-5" id="forecast-three">THREE</div>
           </div>
         </div>
       </div>
-
-      <div class="row">
-        <div class="d-flex col">
-          <div class="m-5 p-5" id="forecast-one">ONE</div>
-          <div class="m-5 p-5" id="forecast-two">TWO</div>
-          <div class="m-5 p-5" id="forecast-three">THREE</div>
-        </div>
-      </div>
+      <small> Open-source code by Reham Abdelaal </small>
     </div>
 
     <script src="src/app.js"></script>
