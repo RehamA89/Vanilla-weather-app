@@ -11,7 +11,7 @@
       crossorigin="anonymous"
     />
     <link rel="stylesheet" href="src/app.css" />
-
+    <script src="https://unpkg.com/axios@1.1.2/dist/axios.min.js"></script>
     <title>Vanilla weather-app</title>
   </head>
   <body>
@@ -33,25 +33,29 @@
           <div class="col-12">
             <h2 class="pt-4 fw-light" id="city-name">Guelph</h2>
             <h6 class="fw-light" id="date-element">Date</h6>
-            <h6 class="fw-light" id="description">clear</h6>
-            <div>
-              <img src="https://ssl.gstatic.com/onebox/weather/64/sunny.png" />
-              <h1 class="mx-3" id="temperature-value">21</h1>
-              <sup>℃|℉</sup>
+            <h6 class="fw-light" id="weather-description">Clear</h6>
+            <div class="d-flex">
+              <img
+                src="https://ssl.gstatic.com/onebox/weather/64/sunny.png"
+                class="mx-1"
+                id="weather-icon"
+              />
+              <h1 id="temperature-value"></h1>
+              <h5>℃ |℉</h5>
               <ul>
                 <li>
                   <span class="py-3 px-5 fs-6 fw-light muted" id="wind"
-                    >Wind</span
+                    >Wind: 15 km/hr</span
                   >
                 </li>
                 <li>
                   <span class="py-3 px-5 fs-6 fw-light muted" id="humidity"
-                    >Humidity</span
+                    >Humidity: 56%</span
                   >
                 </li>
                 <li>
                   <span class="py-3 px-5 fs-6 fw-light muted" id="precipitation"
-                    >Precipitation</span
+                    >Precipitation: 35%</span
                   >
                 </li>
               </ul>
