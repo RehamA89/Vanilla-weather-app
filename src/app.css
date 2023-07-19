@@ -6,33 +6,34 @@ ul {
   padding: 0;
   margin: 0 auto;
 }
-#weather-app-wrapper {
-  max-width: 520px;
-  height: 620px;
-}
+
 #weather-app {
   border: 4px solid #dadde1;
   border-radius: 4px;
+  padding-left: 35px;
+  box-shadow: 0px 10px 10px 0px rgba(0, 0, 0, 0.5);
   max-width: 520px;
   height: 600px;
-  padding-left: 35px;
   margin: 0 auto;
-  box-shadow: 0px 10px 10px 0px rgba(0, 0, 0, 0.5);
-}
-#city-name {
-  font-size: 30px;
 }
 
 #search-field {
   width: 300px;
   height: 40px;
+  margin-top: 30px;
   margin-right: 20px;
   border: 1px solid #dadde1dd;
   border-width: 4px;
   border-radius: 6px;
   box-shadow: 0px 10px 10px 0px rgba(0, 0, 0, 0.5);
 }
-
+#city-name {
+  font-size: 50px;
+  margin-bottom: 0;
+}
+#date-element {
+  margin-bottom: 0;
+}
 .btn {
   width: 100px;
   box-shadow: 0px 10px 10px 0px rgba(0, 0, 0, 0.5);
