@@ -41,6 +41,7 @@ ul {
 #weather-description {
   margin-top: 5px;
   margin-bottom: 20px;
+  text-transform: capitalize;
 }
 #weather-icon {
   display: inline-block;
