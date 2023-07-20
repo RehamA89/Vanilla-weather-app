@@ -41,9 +41,12 @@ ul {
 #weather-description {
   margin-top: 5px;
   margin-bottom: 20px;
+}
+#weather-description:first-letter {
   text-transform: capitalize;
 }
 #weather-icon {
+  transform: scale(1.5);
   display: inline-block;
   height: 60px;
   margin-top: unset;
