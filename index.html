@@ -19,10 +19,10 @@
       <div class="container-lg my-5" id="weather-app">
         <div class="row">
           <div class="col-12 mt-3">
-            <form>
+            <form id="city-search-form">
               <input
                 type="text"
-                placeholder="Enter City and Country Name"
+                placeholder="Enter city name"
                 id="search-field"
               />
               <input type="submit" value="search" class="btn btn-primary" />
@@ -41,7 +41,7 @@
               <ul>
                 <li>
                   <span class="py-3 px-5 fs-6 fw-light muted"
-                    >Wind: <span id="wind-speed"></span>km/h</span
+                    >Wind: <span id="wind-speed"></span> km/h</span
                   >
                 </li>
                 <li>

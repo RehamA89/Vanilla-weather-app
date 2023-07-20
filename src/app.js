@@ -34,10 +34,20 @@ let month = months[now.getMonth()];
 
 currentDate.innerHTML = `${day}, ${month} ${date},  ${hours}:${minutes}`;
 
-let city = "Guelph";
-let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=1a87t400bcfaf6fof17c6a4b4b38d75a&units=metric`;
+function search(city) {
+  let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=1a87t400bcfaf6fof17c6a4b4b38d75a&units=metric`;
+  axios.get(apiUrl).then(showWeatherVariables);
+}
 
-function showTemperature(response) {
+function showCity(event) {
+  event.preventDefault();
+  let searchFieldElement = document.getElementById("search-field");
+  search(searchFieldElement.value);
+  // let cityNameElement = document.getElementById("city-name");
+  // cityNameElement.innerHTML = searchFieldElement.value;
+}
+
+function showWeatherVariables(response) {
   let cityNameElement = document.getElementById("city-name");
   let weatherIconElement = document.getElementById("weather-icon");
   let temperatureValueElement = document.getElementById(`temperature-value`);
@@ -60,4 +70,5 @@ function showTemperature(response) {
   weatherDescriptionElement.innerHTML = response.data.condition.description;
 }
 
-axios.get(apiUrl).then(showTemperature);
+let formElement = document.getElementById("city-search-form");
+formElement.addEventListener("submit", showCity);
