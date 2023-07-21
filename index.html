@@ -36,15 +36,13 @@
             <h6 class="fw-light" id="weather-description"></h6>
             <div class="d-flex">
               <img src="" class="mx-1" id="weather-icon" alt="" />
-              <h1 id="temperature-value"></h1>
-              <h5>
-                <span class="active" id="celsius-temperature"
-                  ><a href="#">℃</a></span
+              <div id="temperature-value"></div>
+              <div class="temperature-units">
+                <span
+                  ><a href="#" id="celsius-link" class="active">℃</a> |
+                  <a href="#" id="fahrenheit-link"> ℉</a></span
                 >
-                |<span class="active" id="fahrenheit-temperature"
-                  ><a href="#">℉</a></span
-                >
-              </h5>
+              </div>
               <ul>
                 <li>
                   <span class="py-3 px-5 fs-6 fw-light muted"

@@ -73,12 +73,16 @@ function showWeatherVariables(response) {
 function displayFahrenheitTemperature(event) {
   event.preventDefault();
   let temperatureValueElement = document.getElementById("temperature-value");
+  celsiusLink.classList.remove("active");
+  fahrenheitLink.classList.add("active");
   temperatureValueElement.innerHTML = Math.round((19 * 9) / 5 + 32);
 }
 
 function displayCelsiusTemperature(event) {
   event.preventDefault();
   let temperatureValueElement = document.getElementById("temperature-value");
+  fahrenheitLink.classList.remove("active");
+  celsiusLink.classList.add("active");
   temperatureValueElement.innerHTML = celsiusTemperatureValue;
 }
 
@@ -87,10 +91,10 @@ let celsiusTemperatureValue = null;
 let formElement = document.getElementById("city-search-form");
 formElement.addEventListener("submit", showCity);
 
-let fahrenheitTemperature = document.getElementById("fahrenheit-temperature");
-fahrenheitTemperature.addEventListener("click", displayFahrenheitTemperature);
+let fahrenheitLink = document.getElementById("fahrenheit-link");
+fahrenheitLink.addEventListener("click", displayFahrenheitTemperature);
 
-let celsiusTemperature = document.getElementById("celsius-temperature");
-celsiusTemperature.addEventListener("click", displayCelsiusTemperature);
+let celsiusLink = document.getElementById("celsius-link");
+celsiusLink.addEventListener("click", displayCelsiusTemperature);
 
 search("Guelph");

@@ -46,7 +46,7 @@ ul {
   text-transform: capitalize;
 }
 #weather-icon {
-  transform: scale(1);
+  transform: scale(1.5);
   display: inline-block;
   height: 60px;
   margin-top: unset;
@@ -59,6 +59,13 @@ ul {
   font-weight: 400px;
   line-height: 56px;
 }
+#celsius-link {
+  text-decoration: none;
+}
+
+#fahrenheit-link {
+  text-decoration: none;
+}
 .btn {
   width: 100px;
   box-shadow: 0px 10px 10px 0px rgba(0, 0, 0, 0.5);
@@ -66,4 +73,13 @@ ul {
 
 .reference {
   position: absolute;
+}
+
+.temperature-units .active {
+  color: black;
+  cursor: default;
+}
+
+.temperature-units .active:hover {
+  text-decoration: none;
 }
