@@ -46,7 +46,7 @@ ul {
   text-transform: capitalize;
 }
 #weather-icon {
-  transform: scale(1.5);
+  transform: scale(1);
   display: inline-block;
   height: 60px;
   margin-top: unset;

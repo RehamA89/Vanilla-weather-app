@@ -43,8 +43,6 @@ function showCity(event) {
   event.preventDefault();
   let searchFieldElement = document.getElementById("search-field");
   search(searchFieldElement.value);
-  // let cityNameElement = document.getElementById("city-name");
-  // cityNameElement.innerHTML = searchFieldElement.value;
 }
 
 function showWeatherVariables(response) {
@@ -55,6 +53,8 @@ function showWeatherVariables(response) {
   let humidityElement = document.getElementById(`humidity`);
   let weatherDescriptionElement =
     document.getElementById(`weather-description`);
+
+  celsiusTemperatureValue = Math.round(response.data.temperature.current);
 
   cityNameElement.innerHTML = response.data.city;
   weatherIconElement.setAttribute(
@@ -70,5 +70,27 @@ function showWeatherVariables(response) {
   weatherDescriptionElement.innerHTML = response.data.condition.description;
 }
 
+function displayFahrenheitTemperature(event) {
+  event.preventDefault();
+  let temperatureValueElement = document.getElementById("temperature-value");
+  temperatureValueElement.innerHTML = Math.round((19 * 9) / 5 + 32);
+}
+
+function displayCelsiusTemperature(event) {
+  event.preventDefault();
+  let temperatureValueElement = document.getElementById("temperature-value");
+  temperatureValueElement.innerHTML = celsiusTemperatureValue;
+}
+
+let celsiusTemperatureValue = null;
+
 let formElement = document.getElementById("city-search-form");
 formElement.addEventListener("submit", showCity);
+
+let fahrenheitTemperature = document.getElementById("fahrenheit-temperature");
+fahrenheitTemperature.addEventListener("click", displayFahrenheitTemperature);
+
+let celsiusTemperature = document.getElementById("celsius-temperature");
+celsiusTemperature.addEventListener("click", displayCelsiusTemperature);
+
+search("Guelph");
