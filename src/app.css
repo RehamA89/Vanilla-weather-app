@@ -13,12 +13,18 @@ ul {
   position: relative;
 }
 
+#weather-app.am {
+  box-shadow: 5px 2px 50px rgb(237, 207, 15);
+}
+#weather-app.pm {
+  box-shadow: 5px 2px 50px rgb(22, 7, 91);
+}
 #weather-app {
-  height: 450px;
+  background: white;
+  height: 550px;
   border: 4px solid #dadde1;
   border-radius: 4px;
   padding-left: 35px;
-  box-shadow: 0px 10px 10px 0px rgba(0, 0, 0, 0.5);
 }
 
 #search-field {

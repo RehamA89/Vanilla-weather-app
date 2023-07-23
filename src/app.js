@@ -3,6 +3,7 @@ let currentDate = document.getElementById("date-element");
 
 let date = now.getDate();
 let hours = now.getHours().toString().padStart(2, "0  ");
+
 let minutes = now.getMinutes().toString().padStart(2, "0");
 
 let days = [
@@ -31,8 +32,20 @@ let months = [
   "December",
 ];
 let month = months[now.getMonth()];
-
 currentDate.innerHTML = `${day}, ${month} ${date},  ${hours}:${minutes}`;
+
+function glow() {
+  let app = document.getElementById("weather-app");
+  if (hours < 12) {
+    app.classList.remove("pm");
+    app.classList.add("am");
+  } else {
+    app.classList.remove("am");
+    app.classList.add("pm");
+  }
+}
+
+glow();
 
 function search(city) {
   let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=1a87t400bcfaf6fof17c6a4b4b38d75a&units=metric`;
