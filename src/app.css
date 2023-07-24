@@ -8,7 +8,7 @@ ul {
 }
 
 #weather-app-wrapper {
-  max-width: 520px;
+  max-width: 650px;
   margin: 0 auto;
   position: relative;
 }
@@ -21,14 +21,14 @@ ul {
 }
 #weather-app {
   background: white;
-  height: 550px;
+  height: 435px;
   border: 4px solid #dadde1;
   border-radius: 4px;
   padding-left: 35px;
 }
 
 #search-field {
-  width: 300px;
+  width: 450px;
   height: 40px;
   margin-top: 30px;
   margin-right: 20px;
@@ -40,22 +40,26 @@ ul {
 #city-name {
   font-size: 50px;
   margin-bottom: 1px;
+  margin-left: 30px;
 }
 #date-element {
   margin-bottom: 1px;
+  margin-left: 30px;
 }
 #weather-description {
   margin-top: 5px;
   margin-bottom: 20px;
+  margin-left: 30px;
 }
 #weather-description:first-letter {
   text-transform: capitalize;
 }
 #weather-icon {
-  transform: scale(1.5);
+  transform: scale(1.25);
   display: inline-block;
   height: 60px;
   margin-top: unset;
+  margin-left: 50px;
   vertical-align: top;
   width: 60px;
 }
@@ -90,4 +94,9 @@ ul {
 
 .temperature-units .active:hover {
   text-decoration: none;
+}
+.forecastGroup {
+  position: absolute;
+  top: 75%;
+  left: 10%;
 }
