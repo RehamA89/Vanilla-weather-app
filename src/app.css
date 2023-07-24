@@ -95,8 +95,8 @@ ul {
 .temperature-units .active:hover {
   text-decoration: none;
 }
-.forecastGroup {
+
+.weatherForecast {
   position: absolute;
   top: 75%;
-  left: 10%;
 }
