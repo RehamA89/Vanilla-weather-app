@@ -101,27 +101,31 @@ function displayCelsiusTemperature(event) {
 
 function displayForecast() {
   let forecastElement = document.getElementById("forecast");
-
   let days = ["Tue", "Wed", "Thu", "Fri", "Sat"];
-
   let forecastHtml = `<div class="row">`;
+
   days.forEach(function (day) {
     forecastHtml =
       forecastHtml +
-      `
-      <div class="col-2">
-        <div class="weather-forecast-date">${day}</div>
-        <img
-          src="http://openweathermap.org/img/wn/50d@2x.png"
-          alt=""
-          width="42"
-        />
-        <div class="weather-forecast-temperatures">
-          <span class="weather-forecast-temperature-max"> 18° </span>
-          <span class="weather-forecast-temperature-min"> 12° </span>
-        </div>
-      </div>
-  `;
+      `  
+            <div class="col-2">
+              <div id="forecast-day-one">
+                ${day}
+                </div>
+                <div id="forecast-icon">
+                <img
+                  src="http://openweathermap.org/img/wn/50d@2x.png"
+                  alt=""
+                  width="42"
+                />
+                </div>
+                <div id="forcast-temperatures">
+                  <span id="forecast-temp-max">25℃</span> 
+                  <span id="forecast-temp-min">15℃</span>
+                </div>
+             
+            </div>
+         `;
   });
   forecastHtml = forecastHtml + `</div>`;
   forecastElement.innerHTML = forecastHtml;
