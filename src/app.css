@@ -16,6 +16,9 @@ ul {
 #weather-app.am {
   box-shadow: 5px 2px 50px rgb(237, 207, 15);
 }
+#weather-app.afternoon {
+  box-shadow: 5px 2px 50px rgb(225, 150, 150);
+}
 #weather-app.pm {
   box-shadow: 5px 2px 50px rgb(22, 7, 91);
 }
@@ -28,10 +31,10 @@ ul {
 }
 
 #search-field {
-  width: 450px;
+  width: 400px;
   height: 40px;
   margin-top: 30px;
-  margin-right: 20px;
+  margin-left: 30px;
   border: 1px solid #dadde1dd;
   border-width: 4px;
   border-radius: 6px;
@@ -79,7 +82,7 @@ ul {
   font-size: 20px;
 }
 
-#forecast-day-one {
+#forecast-day {
   opacity: 0.5;
 }
 #forecast-temp-max {
@@ -107,9 +110,4 @@ ul {
 
 .temperature-units .active:hover {
   text-decoration: none;
-}
-
-.weatherForecast {
-  position: absolute;
-  top: 75%;
 }

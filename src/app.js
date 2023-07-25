@@ -34,9 +34,9 @@ let months = [
 let month = months[now.getMonth()];
 currentDate.innerHTML = `${day}, ${month} ${date},  ${hours}:${minutes}`;
 
-function glow() {
+function showGlow() {
   let app = document.getElementById("weather-app");
-  if (hours < 12) {
+  if (hours < 18) {
     app.classList.remove("pm");
     app.classList.add("am");
   } else {
@@ -45,7 +45,7 @@ function glow() {
   }
 }
 
-glow();
+showGlow();
 
 function search(city) {
   let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=1a87t400bcfaf6fof17c6a4b4b38d75a&units=metric`;
@@ -59,6 +59,7 @@ function showCity(event) {
 }
 
 function showWeatherVariables(response) {
+  //console.log(response);
   let cityNameElement = document.getElementById("city-name");
   let weatherIconElement = document.getElementById("weather-icon");
   let temperatureValueElement = document.getElementById(`temperature-value`);
@@ -81,6 +82,8 @@ function showWeatherVariables(response) {
   windSpeedElement.innerHTML = (response.data.wind.speed * 3.6).toFixed(1);
   humidityElement.innerHTML = response.data.temperature.humidity;
   weatherDescriptionElement.innerHTML = response.data.condition.description;
+
+  getForecast(response.data.coordinates);
 }
 
 function displayFahrenheitTemperature(event) {
@@ -99,33 +102,57 @@ function displayCelsiusTemperature(event) {
   temperatureValueElement.innerHTML = celsiusTemperatureValue;
 }
 
-function displayForecast() {
-  let forecastElement = document.getElementById("forecast");
-  let days = ["Tue", "Wed", "Thu", "Fri", "Sat"];
-  let forecastHtml = `<div class="row">`;
+function formatForecastDay(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let day = date.getDay();
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
 
-  days.forEach(function (day) {
-    forecastHtml =
-      forecastHtml +
-      `  
-            <div class="col-2">
-              <div id="forecast-day-one">
-                ${day}
+  return days[day];
+}
+function getForecast(coordinates) {
+  //console.log(coordinates);
+  let apiUrlForecast = `https://api.shecodes.io/weather/v1/forecast?lon=${coordinates.longitude}&lat=${coordinates.latitude}&key=1a87t400bcfaf6fof17c6a4b4b38d75a&units=metric`;
+  axios.get(apiUrlForecast).then(displayForecastData);
+}
+
+function displayForecastData(response) {
+  let forecastDays = response.data.daily;
+
+  let forecastElement = document.getElementById("forecast");
+
+  let forecastHtml = `<div class="row justify-content-center">`;
+
+  forecastDays.forEach(function (forecastDay, index) {
+    if (index < 6) {
+      forecastHtml =
+        forecastHtml +
+        `
+            <div class="col-2 justify-content-center text-center">
+              <div id="forecast-day">
+                ${formatForecastDay(forecastDay.time)}
+                
                 </div>
                 <div id="forecast-icon">
                 <img
-                  src="http://openweathermap.org/img/wn/50d@2x.png"
+                  src=http:shecodes-assets.s3.amazonaws.com/api/weather/icons/${
+                    forecastDay.condition.icon
+                  }.png
                   alt=""
                   width="42"
                 />
                 </div>
                 <div id="forcast-temperatures">
-                  <span id="forecast-temp-max">25℃</span> 
-                  <span id="forecast-temp-min">15℃</span>
+                  <span id="forecast-temp-max">${Math.round(
+                    forecastDay.temperature.maximum
+                  )}°</span>
+                  <span id="forecast-temp-min">${Math.round(
+                    forecastDay.temperature.minimum
+                  )}°</span>
                 </div>
-             
+
             </div>
          `;
+    }
   });
   forecastHtml = forecastHtml + `</div>`;
   forecastElement.innerHTML = forecastHtml;
@@ -143,5 +170,3 @@ let celsiusLink = document.getElementById("celsius-link");
 celsiusLink.addEventListener("click", displayCelsiusTemperature);
 
 search("Guelph");
-
-displayForecast();
