@@ -59,7 +59,6 @@ function showCity(event) {
 }
 
 function showWeatherVariables(response) {
-  //console.log(response);
   let cityNameElement = document.getElementById("city-name");
   let weatherIconElement = document.getElementById("weather-icon");
   let temperatureValueElement = document.getElementById(`temperature-value`);
@@ -84,14 +83,6 @@ function showWeatherVariables(response) {
   weatherDescriptionElement.innerHTML = response.data.condition.description;
 
   getForecast(response.data.coordinates);
-}
-
-function displayFahrenheitTemperature(event) {
-  event.preventDefault();
-  let temperatureValueElement = document.getElementById("temperature-value");
-  celsiusLink.classList.remove("active");
-  fahrenheitLink.classList.add("active");
-  temperatureValueElement.innerHTML = Math.round((19 * 9) / 5 + 32);
 }
 
 function displayCelsiusTemperature(event) {
@@ -120,14 +111,14 @@ function displayForecastData(response) {
 
   let forecastElement = document.getElementById("forecast");
 
-  let forecastHtml = `<div class="row justify-content-center">`;
+  let forecastHtml = `<div class="row">`;
 
   forecastDays.forEach(function (forecastDay, index) {
-    if (index < 6) {
+    if (index < 5) {
       forecastHtml =
         forecastHtml +
         `
-            <div class="col-2 justify-content-center text-center">
+            <div class="col-2 mx-1 my-4 justify-content-center text-center">
               <div id="forecast-day">
                 ${formatForecastDay(forecastDay.time)}
                 
@@ -162,11 +153,5 @@ let celsiusTemperatureValue = null;
 
 let formElement = document.getElementById("city-search-form");
 formElement.addEventListener("submit", showCity);
-
-let fahrenheitLink = document.getElementById("fahrenheit-link");
-fahrenheitLink.addEventListener("click", displayFahrenheitTemperature);
-
-let celsiusLink = document.getElementById("celsius-link");
-celsiusLink.addEventListener("click", displayCelsiusTemperature);
 
 search("Guelph");
